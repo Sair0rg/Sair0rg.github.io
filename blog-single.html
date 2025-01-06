@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Blog Single - Hola</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+            
+        <div class="header-logo">
+            <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage"></a>
+        </div>
+
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li><a href="index.html#home" title="home">Home</a></li>
+                <li><a href="index.html#about" title="about">About</a></li>
+                <li><a href="index.html#works" title="works">Works</a></li>
+                <li class="current"><a href="blog.html" title="blog">Blog</a></li>
+                <li><a href="index.html#contact" title="contact">Contact</a></li>	
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+
+    <article class="blog-single">
+
+        <!-- page header/blog hero
+        ================================================== -->
+        <div class="page-header page-header--single page-hero" style="background-image:url(images/blog/blog-bg-02.jpg)">
+        
+            <div class="row page-header__content narrow">
+                <article class="col-full">
+                    <div class="page-header__info">
+                        <div class="page-header__cat">
+                            <a href="#0">Capture Thr Flag</a>
+                        </div>
+                    </div>
+                    <h1 class="page-header__title">
+                        <a href="#0" title="">
+                            TryHackMe | CTF collection Vol. 1 | Writeup
+                        </a>
+                    </h1>
+                    <ul class="page-header__meta">
+                        <li class="date">September 16, 2024</li>
+                        <li class="author">
+                            By
+                            <span>Sarang vp</span>
+                        </li>
+                    </ul>
+                    
+                </article>
+            </div>
+    
+        </div> <!-- end page-header -->
+
+        <div class="row blog-content">
+            <div class="col-full blog-content__main">
+
+                <p class="lead"> <a href="https://tryhackme.com/r/room/ctfcollectionvol1">TryHackMe’s CTF collection Vol. 1</a> is an easy-level room
+                     involving decoding, metadata, steganography, PNG magic numbers, OSINT,
+                      web archives, and packet analysis to find flags. This writeup will go 
+                      through each step required to complete the room.</p>
+                
+                      <h3>Task 1: Author note</h3>
+                <h4>1. High five!</h4>
+                Read the above and click the “Completed” button.
+
+              <!--  <p>
+                <img src="images/wheel-1000.jpg" 
+                     srcset="images/wheel-2000.jpg 2000w, 
+                        images/wheel-1000.jpg 1000w, 
+                        images/wheel-500.jpg 500w" 
+                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                </p>
+            -->
+
+            <h3>Task 2: What does the base said?</h3>
+            <h4>1. Feed me the flag!</h4>
+            Read the above and click the “Completed” button.
+
+
+            <h3>Task 1: Author note</h3>
+                <h4>1. High five!</h4>
+                Based on the task name and the equal signs after the string, we can assume that this is probably Base64. We can plug this in to CyberChef and confirm our suspicions to get the flag.
+
+
+
+                <h3>Task 3: Meta meta</h3>
+                <h4>1. I’m hungry, I need the flag.</h4>
+                Opening the image shows a picture of the earth.
+
+                Nothing here stands out as the flag, so let’s dig into the metadata of the image. In our terminal, we can use ExifTool to see the metadata of the image. We’ll use the following command:
+                <code>$ exiftool Findme.jpg</code>
+
+                <h3>Task 4: Mon, are we going to be okay?</h3>
+                <h4>1. It is sad. Feed me the flag.</h4>
+                This image has nothing interesting in it’s metadata. Let’s use Steghide to look for anything hidden using the following command:
+<code>$ steghide --info Extinction.jpg
+</code>
+
+<p>When asked for a password
+     we simply hit enter which reveals that there
+      is a hidden text file.</p>
+               
+      We can now use the following command to extract the file:
+
+      <code>$ steghide extract -sf Extinction.jpg </code>
+
+<p> When asked for a passphrase we hit enter
+     and see that the data is written to a file.</p>
+
+
+<p>Use cat on the file reveals the flag to us.</p>
+
+
+
+<h3>Task 6: QRrrrr</h3>
+<h4>1. More flag please!</h4>
+The image we download is a QR code. Scanning the code leads to a Google search of the flag.
+
+
+<h3>Task 7: Reverse it or read it?<h3>
+</h3>1. Found the flag?</h4>
+After downloading the file, we can open it in Notepad. We’re met with a lot of random symbols, scrolling down we can find the flag.
+
+<h3>Task 8: Another decoding stuff<h3>
+</h3>1. Oh, Oh, Did you get it?</h4>
+This is another encoded string that we need to run through CyberChef. We can use the Magic recipe to see if it can automatically decode it. We can also just play around with different encoding structures until we find the correct one. Using Base58, we find that the flag becomes readable.
+
+<h3>Task 9: Left or right<h3>
+</h3>1. What did you get?</h4>
+
+The task says that ROT13 is too mainstream. ROT13 is a Caesar Cipher, let’s plug the string into <a href="https://www.dcode.fr/caesar-cipher" >dcode.fr’s Caesar Cipher decoder</a> to see if it can solve it. We find that it is a Caesar Cipher and the solve for it.
+
+<h3>Task 10: Make a comment<h3>
+</h3>1. I’m hungry now… I need the flag</h4>
+
+This is similar to task 5. There is nothing visible in the task. If we inspect the page we can find the flag in the code of the task.
+
+
+<h3>Task 11: Can you fix it?<h3>
+</h3>1. What is the content?</h4>
+
+
+If we download and try to open the image, we get an error message.
+
+
+
+In some CTFs it is common to be given an image with code changed so the file cannot be opened. This code is called “magic numbers” and it is how computers read file types. We can go to hexed.it to see the magic numbers of the file we were given.
+
+
+
+These values do not match the ones required for a PNG image.
+
+
+
+Let’s change those magic numbers to the correct values.
+
+
+change to the correct values
+We are now able to open the image and see the flag.
+
+
+
+<h3>Task 12: Read it<h3>
+</h3>1. Did you found the hidden flag?</h4>
+
+This one is pretty difficult. The flag is in a post on the TryHackMe subreddit. It can be found by searching “tryhackme room reddit” and is in a post titled “New room Coming soon!”.
+
+
+<h3>Task 13: Spin my head<h3>
+</h3>1. Can you decode it?</h4>
+
+This is a programming language called Brainfuck.
+We can put this code into dcode.fr’s Brainfuck interpreter to get the flag.
+
+
+<h3>Task 14: An exclusive!<h3>
+</h3>1. Did you crack it? Feed me now!</h4>
+
+We’re given two strings, based on the task name we can assume they will be used in an exclusive or (XOR) operation. We can find one online and play with the settings until the flag is revealed.
+
+<h3>Task 15: Binary walk!<h3>
+</h3>1. Flag! Flag! Flag!</h4>
+
+The task name is called binary walk, which implies we need to use Binwalk on the downloaded image. We can use the following command to look for anything with Binwalk:
+
+<code>$ binwalk hell.jpg</code>
+
+This reveals a text file in the image.
+
+Since we know there is a file, we can use the following command to extract it from the image:
+
+
+<code>$ binwalk -e hell.jpg</code>
+
+This will create a directory, if we open it and look inside we’ll see the text file. We can then open it to get the flag.
+
+<h3>Task 16: Darkness!<h3>
+</h3>1. What does the flag said?</h4>
+
+The image we’re given look to be a black rectangle. If we run the image through Aperi’Solve, we can see that the flag has been superimposed in the image.
+
+
+<h3>Task 17: A sounding QR<h3>
+</h3>1. What does the bot said?</h4>
+
+The image attached is another QR code. This one leads to a SoundCloud song with a TTS voice reading the flag. I would recommend using the loop option because the voice is slightly hard to get used to and understand.
+
+
+
+<h3>Task 18: Dig up the past<h3>
+</h3>1. Did you found my past?</h4>
+
+
+We’re given the URL of a website and a date we need to view it at. We can do this using the "Wayback Machine". If we go to the specified date we’ll see that a snapshot has been taken.
+
+
+<p>Checking the snapshot shows us an uncategorized article with the flag in it.</p>
+
+
+<h3>Task 19: Uncrackable!<h3>
+</h3>1. The deciphered text</h4>
+
+This is a Vigenere Cipher, which is similar to the Caesar Cipher but uses multiple values to shift instead of one. For a good explanation, click here. We’re given the format for this flag, which actually makes it a pretty easy solve. We can use "dcode.fr’s Vigenere Cipher tool" to solve it with a known plaintext word.
+
+<h3>Task 20: Small bases!<h3>
+</h3>1. What is the flag?</h4>
+
+
+I was using CyberChef to solve this and kept getting the wrong answer. We have to convert from a Decimal number to Hexadecimal and then to ASCII. I ended up having to use RapidTables to do the conversions.
+
+
+
+<h3>Task 21: Read the packet<h3>
+</h3>1. Did you captured my neighbor’s flag?</h4>
+
+
+Since we know the format of the flags, we can simply do a string search for “THM{“. This finds a packet that has the flag in it.
+    <center>
+
+<H2>We’ve completed the room!</H2>
+
+</center>
+
+
+
+
+<!--
+<h2>Large Heading</h2>
+
+                <p>Harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus <a href="http://#">omnis voluptas assumenda est</a> id quod maxime placeat facere possimus, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et.</p>
+
+                <blockquote><p>This is a simple example of a styled blockquote. A blockquote tag typically specifies a section that is quoted from another source of some sort, or highlighting text in your post.</p></blockquote>
+
+                <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.</p>
+
+                <h3>Smaller Heading</h3>
+
+                <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
+
+<pre><code>
+code {
+    font-size: 1.4rem;
+    margin: 0 .2rem;
+    padding: .2rem .6rem;
+    white-space: nowrap;
+    background: #F1F1F1;
+    border: 1px solid #E1E1E1;	
+    border-radius: 3px;
+}
+</code></pre>
+
+                <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
+
+                <ul>
+                    <li>Donec nulla non metus auctor fringilla.
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet.</li>
+                            <li>Lorem ipsum dolor sit amet.</li>
+                            <li>Lorem ipsum dolor sit amet.</li>
+                        </ul>
+                    </li>
+                    <li>Donec nulla non metus auctor fringilla.</li>
+                    <li>Donec nulla non metus auctor fringilla.</li>
+                </ul>
+
+                <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.</p>
+
+                <p class="blog-content__tags">
+                    <span>Post Tags</span>
+
+                    <span class="blog-content__tag-list">
+                        <a href="#0">orci</a>
+                        <a href="#0">lectus</a>
+                        <a href="#0">varius</a>
+                        <a href="#0">turpis</a>
+                    </span>
+
+                </p>
+
+                <div class="blog-content__pagenav">
+                    <div class="blog-content__nav">
+                        <div class="blog-content__prev">
+                            <a href="#0" rel="prev">
+                                <span>Previous Post</span>
+                                Tips on Minimalist Design 
+                            </a>
+                        </div>
+                        <div class="blog-content__next">
+                            <a href="#0" rel="next">
+                                <span>Next Post</span>
+                                Less Is More 
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="blog-content__all">
+                        <a href="blog.html" class="btn btn--primary">
+                            View All Post
+                        </a>
+                    </div>
+                </div>-->
+
+            </div><!-- end blog-content__main -->
+        </div> <!-- end blog-content -->
+
+    </article>
+
+
+    <!-- comments 
+    ================================================== 
+    <div class="comments-wrap">
+
+        <div id="comments" class="row">
+            <div class="col-full">
+
+               <h3>5 Comments</h3>
+
+                commentlist --><!--
+               <ol class="commentlist">
+
+                    <li class="depth-1 comment">
+
+                        <div class="comment__avatar">
+                            <img width="50" height="50" class="avatar" src="images/avatars/user-01.jpg" alt="">
+                        </div>
+
+                        <div class="comment__content">
+
+                            <div class="comment__info">
+                                <cite>Itachi Uchiha</cite>
+
+                                <div class="comment__meta">
+                                    <time class="comment__time">Sep 16, 2017 @ 23:05</time>
+                                    <span class="sep">|</span><a class="reply" href="#">Reply</a>
+                                </div>
+                            </div>
+
+                            <div class="comment__text">
+                            <p>Adhuc quaerendum est ne, vis ut harum tantas noluisse, id suas iisque mei. Nec te inani ponderum vulputate,
+                            facilisi expetenda has et. Iudico dictas scriptorem an vim, ei alia mentitum est, ne has voluptua praesent.</p>
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="thread-alt depth-1 comment">
+
+                        <div class="comment__avatar">
+                            <img width="50" height="50" class="avatar" src="images/avatars/user-04.jpg" alt="">
+                        </div>
+
+                        <div class="comment__content">
+
+                            <div class="comment__info">
+                            <cite>John Doe</cite>
+
+                            <div class="comment__meta">
+                                <time class="comment__time">Sep 16, 2017 @ 24:05</time>
+                                <span class="sep">|</span><a class="reply" href="#">Reply</a>
+                            </div>
+                            </div>
+
+                            <div class="comment__text">
+                            <p>Sumo euismod dissentiunt ne sit, ad eos iudico qualisque adversarium, tota falli et mei. Esse euismod
+                            urbanitas ut sed, et duo scaevola pericula splendide. Primis veritus contentiones nec ad, nec et
+                            tantas semper delicatissimi.</p>
+                            </div>
+
+                        </div>
+
+                        <ul class="children">
+
+                            <li class="depth-2 comment">
+
+                                <div class="comment__avatar">
+                                    <img width="50" height="50" class="avatar" src="images/avatars/user-03.jpg" alt="">
+                                </div>
+
+                                <div class="comment__content">
+
+                                    <div class="comment__info">
+                                        <cite>Kakashi Hatake</cite>
+
+                                        <div class="comment__meta">
+                                            <time class="comment__time">Sep 16, 2017 @ 25:05</time>
+                                            <span class="sep">|</span><a class="reply" href="#">Reply</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment__text">
+                                        <p>Duis sed odio sit amet nibh vulputate
+                                        cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate
+                                        cursus a sit amet mauris</p>
+                                    </div>
+
+                                </div>
+
+                                <ul class="children">
+
+                                    <li class="depth-3 comment">
+
+                                        <div class="comment__avatar">
+                                            <img width="50" height="50" class="avatar" src="images/avatars/user-04.jpg" alt="">
+                                        </div>
+
+                                        <div class="comment__content">
+
+                                            <div class="comment__info">
+                                            <cite>John Doe</cite>
+
+                                            <div class="comment__meta">
+                                                <time class="comment__time">Sep 16, 2017 @ 25:15</time>
+                                                <span class="sep">|</span><a class="reply" href="#">Reply</a>
+                                            </div>
+                                            </div>
+
+                                            <div class="comment__text">
+                                            <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est
+                                            etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
+                                            </div>
+
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="depth-1 comment">
+
+                        <div class="comment__avatar">
+                            <img width="50" height="50" class="avatar" src="images/avatars/user-02.jpg" alt="">
+                        </div>
+
+                        <div class="comment__content">
+
+                            <div class="comment__info">
+                            <cite>Shikamaru Nara</cite>
+
+                            <div class="comment__meta">
+                                <time class="comment-time">Sep 16, 2017 @ 25:15</time>
+                                <span class="sep">|</span><a class="reply" href="#">Reply</a>
+                            </div>
+                            </div>
+
+                            <div class="comment__text">
+                            <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</p>
+                            </div>
+
+                        </div>
+
+                    </li> -->
+
+                </ol> <!-- Commentlist End -->	
+
+              <!--  respond 
+               <div class="respond">
+
+                    <h3>Leave a Comment</h3>
+
+                    <form name="contactForm" id="contactForm" method="post" action="">
+                        <fieldset>
+
+                        <div class="form-field">
+                                <input name="cName" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
+                        </div>
+
+                        <div class="form-field">
+                                <input name="cEmail" type="text" id="cEmail" class="full-width" placeholder="Your Email" value="">
+                        </div>
+
+                        <div class="form-field">
+                                <input name="cWebsite" type="text" id="cWebsite" class="full-width" placeholder="Website" value="">
+                        </div>
+
+                        <div class="message form-field">
+                            <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit btn--primary">Submit</button>
+
+                        </fieldset>
+                    </form> <!-- Form End -->
+
+                </div> <!-- Respond End -->
+
+            </div> <!-- end col-full -->
+        </div> <!-- end row comments -->
+    </div> <!-- end comments-wrap -->  
+
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+            <div class="row">
+                <div class="col-full">
+    
+                
+    
+                    <ul class="footer-social">
+                        <li><a href="#0">
+                            <i class="im im-facebook" aria-hidden="true"></i>
+                            <span>Facebook</span>
+                        </a></li>
+                        <li><a href="#0">
+                            <i class="im im-twitter" aria-hidden="true"></i>
+                            <span>Twitter</span>
+                        </a></li>
+                        <li><a href="#0">
+                            <i class="im im-instagram" aria-hidden="true"></i>
+                            <span>Instagram</span>
+                        </a></li>
+                        <li><a href="#0">
+                            <i class="im im-behance" aria-hidden="true"></i>
+                            <span>Behance</span>
+                        </a></li>
+                        <li><a href="#0">
+                            <i class="im im-pinterest" aria-hidden="true"></i>
+                            <span>Pinterest</span>
+                        </a></li>
+                    </ul>
+                        
+                </div>
+            </div>
+    
+            <div class="row footer-bottom">
+    
+                
+    
+                    <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="im im-arrow-up" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+    
+            </div> <!-- end footer-bottom -->
+    
+        </footer> <!-- end footer -->
+    
+    
+        <div id="preloader"> 
+            <div id="loader"></div>
+        </div>
+    
+    
+        <!-- Java Script
+        ================================================== -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+</body>
+
+</html>
