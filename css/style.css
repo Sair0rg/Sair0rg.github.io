@@ -37,7 +37,7 @@
     font-size: 3em;
     margin-bottom: 20px;
     
-    -webkit-user-select: none;
+   
     
 }
 
@@ -305,8 +305,7 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
-/* Popup Background (Fully Transparent) */
+}/* Popup Background (Fully Transparent) */
 .desktop-popup {
     position: fixed;
     top: 0;
@@ -362,4 +361,58 @@
 @keyframes popupFade {
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
+}
+/* 🔥 Global mobile fix */
+@media (max-width: 768px) {
+
+    /* Make images automatically resize */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Fix text overflow */
+    h1, h2, h3, p {
+        text-align: center;
+        line-height: 1.3;
+        word-wrap: break-word;
+    }
+
+    /* Reduce huge text sizes */
+    h1 { font-size: 28px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+
+    /* Fix home section height */
+    #home {
+        height: auto;
+        padding-top: 140px;
+        padding-bottom: 80px;
+    }
+
+    /* Fix buttons */
+    .btn, .btn--stroke {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Fix columns becoming stacked */
+    .col-six, .col-four, .col-eight, .col-full, .tab-full {
+        width: 100% !important;
+        float: none !important;
+        text-align: center !important;
+    }
+
+    /* Fix the background */
+    #bg-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Fix navbar for mobile */
+    .header-nav {
+        width: 100%;
+        padding: 20px;
+    }
 }
