@@ -306,3 +306,60 @@
         transform: translateY(0);
     }
 }
+/* Popup Background (Fully Transparent) */
+.desktop-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;   /* Full transparent */
+    backdrop-filter: blur(0px); /* No blur */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+/* Popup Box */
+.popup-box {
+    background: rgba(20,20,20,0.65); /* Slight dark blur */
+    padding: 25px;
+    width: 85%;
+    max-width: 350px;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* Glass effect */
+    animation: popupFade 0.4s ease-out;
+}
+
+/* Better OK Button */
+.popup-btn {
+    margin-top: 18px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 12px rgba(0, 140, 255, 0.45);
+    transition: 0.25s ease;
+}
+
+/* Hover Effect */
+.popup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(0, 150, 255, 0.75);
+    background: linear-gradient(135deg, #0099ff, #0066cc);
+}
+
+
+/* Animation */
+@keyframes popupFade {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
