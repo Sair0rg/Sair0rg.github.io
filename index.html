@@ -855,6 +855,18 @@ document.getElementById("contactForm").addEventListener("submit", async function
     }
 });
 </script>
+    <script>
+function closePopup() {
+    document.getElementById("desktop-popup").style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Detect if user is on mobile
+    if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+        document.getElementById("desktop-popup").style.display = "flex";
+    }
+});
+</script>
 
 
 
