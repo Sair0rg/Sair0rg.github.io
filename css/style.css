@@ -1,0 +1,308 @@
+/* Video background styling */
+#bg-image {
+    position: fixed;
+ background-attachment: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Overlay styling to darken the video */
+.overlay,
+.shadow-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.919); /* Darken overlay */
+    z-index: 0;
+    
+}
+
+/* Position and style content */
+.home-content {
+    position: relative;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding: 150px 10px;
+    left: -50px;
+}
+
+.home-content__main h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    
+    -webkit-user-select: none;
+    
+}
+
+.home-content__scroll a {
+    display: inline-block;
+    margin-top: 200px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border-top: 3px solid white;
+    padding: 4px 7px;
+}
+
+.home-content { 
+    bottom: 10px;
+    
+}
+
+.footer {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text for contrast */
+    padding: 2rem; /* Add spacing inside the footer */
+    text-align: center; /* Center-align the content */
+}
+
+.footer-social li {
+    display: inline-block;
+    margin: 0 10px; /* Space between social links */
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer-social a:hover {
+    color: #fff; /* Full white color on hover */
+}
+
+.go-top {
+    margin-top: 1rem;
+}
+
+.go-top a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.go-top a:hover {
+    color: #fff;
+}
+.avatar {
+    vertical-align: center;
+    width: 95px;
+    height: 100px;
+    border-radius: 100%;
+  }
+  .shadow-overlay {
+    pointer-events: none;
+}
+.item-folio__thumb img {
+    width: 100%;
+    aspect-ratio: 16/9;   /* same shape */
+    object-fit: cover;
+}
+/* Add space between each portfolio card */
+.masonry__brick {
+    padding: 10px;   /* spacing around each card */
+    box-sizing: border-box;
+}
+
+/* Optional: spacing inside masonry container */
+.masonry {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+/* Transparent contact form styling */
+#contactForm {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Input and textarea fields */
+#contactForm input,
+#contactForm textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 15px;
+    border-radius: 6px;
+    color: #fff;
+    width: 100%;
+    outline: none;
+    transition: 0.3s ease;
+    font-size: 16px;
+}
+
+/* Input hover & focus effect */
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: #00a8ff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Align all form fields */
+.form-field {
+    margin-bottom: 18px;
+}
+
+/* Submit button styling */
+#contactForm button {
+    background: #00a8ff;
+    color: #fff;
+    padding: 12px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#contactForm button:hover {
+    background: #0091dd;
+}
+
+/* Loading animation alignment */
+.submit-loader {
+    margin-top: 10px;
+}
+
+/* Placeholder color */
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Overlay Background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 20, 40, 0.6); /* dark blue transparent */
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Popup Box - Blue Neon Glass */
+.popup-box {
+    background: rgba(0, 60, 150, 0.35); /* transparent blue glass */
+    padding: 25px 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 85%;
+    max-width: 350px;
+    color: #dbe9ff;
+    animation: popIn 0.4s ease;
+    border: 1px solid rgba(0, 140, 255, 0.6); /* blue neon border */
+    box-shadow: 0 0 25px rgba(0, 140, 255, 0.5); /* neon glow */
+    backdrop-filter: blur(12px);
+}
+
+/* Blue Icon */
+.popup-icon {
+    font-size: 46px;
+    font-weight: bold;
+    color: #00a8ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 12px rgba(0, 140, 255, 0.8);
+}
+
+/* Popup Text */
+.popup-box h3 {
+    color: #e2f1ff;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.popup-box p {
+    font-size: 15px;
+    color: #bbd7ff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Typing animation container */
+.typing-container {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Blinking cursor */
+.cursor {
+    display: inline-block;
+    margin-left: 4px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+/* Matrix canvas */
+#matrixCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* behind text, above bg image */
+    opacity: 0.6;
+    pointer-events: none; /* allow clicks */
+}
+
+/* Your home content is above the matrix */
+.home-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fade-in animation for your name & titles */
+.matrix-fade {
+    animation: fadeInUp 2s forwards;
+    opacity: 0;
+    color: rgba(219, 192, 139);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
